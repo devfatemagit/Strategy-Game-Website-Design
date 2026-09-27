@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b1016">
+  <title>Fortress — Competitive Strategy UI Concept</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="theme-dark bg-steel board-obsidian">
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#">
+        <span class="brand-mark"><i></i><i></i><i></i></span>
+        <span>FORTRESS<small>TACTICAL ARENA</small></span>
+      </a>
+      <div class="match-status"><span class="live-dot"></span> RANKED MATCH <b>#48291</b></div>
+      <div class="top-actions">
+        <button class="icon-btn" data-modal="notifications" aria-label="Notifications">◌<em>3</em></button>
+        <button class="avatar">FA</button>
+      </div>
+    </header>
+
+    <div class="layout">
+      <aside class="sidebar">
+        <nav>
+          <a class="nav-item active" href="#game"><span>◈</span> Arena</a>
+          <a class="nav-item" href="#profile"><span>◎</span> Profile</a>
+          <a class="nav-item" href="#ranked"><span>↗</span> Ranked</a>
+          <a class="nav-item" href="#history"><span>◷</span> Match History</a>
+          <a class="nav-item" href="#settings"><span>⚙</span> Settings</a>
+        </nav>
+        <div class="season-card">
+          <div class="season-label">SEASON 08</div>
+          <strong>IRON DOMINION</strong>
+          <div class="progress"><i></i></div>
+          <small>1,840 / 2,500 XP</small>
+        </div>
+        <button class="help-btn">? <span>Game Guide</span></button>
+      </aside>
+
+      <main class="main">
+        <section class="hero-row">
+          <div>
+            <p class="eyebrow">LIVE BATTLE • TURN 17 / 24</p>
+            <h1>Iron Dominion</h1>
+            <p class="sub">Control the board. Break the line. Hold the fortress.</p>
+          </div>
+          <div class="turn-box">
+            <span>YOUR TURN</span>
+            <strong id="timer">00:38</strong>
+            <small>+12 SEC BONUS</small>
+          </div>
+        </section>
+
+        <section class="battle-layout" id="game">
+          <div class="board-panel">
+            <div class="board-head">
+              <div class="player"><span class="player-dot blue"></span><div><b>FATEMA</b><small>RANK 14 • 1,842</small></div></div>
+              <div class="vs">VS</div>
+              <div class="player enemy"><div><b>VANGUARD</b><small>RANK 15 • 1,816</small></div><span class="player-dot red"></span></div>
+            </div>
+
+            <div class="game-board" id="board" aria-label="Interactive strategy game board"></div>
+
+            <div class="board-controls">
+              <div class="legend">
+                <span><i class="dot move"></i> Move</span>
+                <span><i class="dot attack"></i> Attack</span>
+                <span><i class="dot selected"></i> Selected</span>
+              </div>
+              <div class="board-actions">
+                <button class="small-btn" id="undoBtn">↶ Undo</button>
+                <button class="small-btn" id="endTurn">End Turn <b>↵</b></button>
+              </div>
+            </div>
+          </div>
+
+          <aside class="right-panel">
+            <div class="panel-section objective">
+              <div class="panel-title"><span>OBJECTIVE</span><b>2 / 3</b></div>
+              <h3>Capture the central node</h3>
+              <p>Secure the marked zone before your opponent reaches it.</p>
+              <div class="objective-progress"><i></i></div>
+            </div>
+
+            <div class="panel-section">
+              <div class="panel-title"><span>SELECTED UNIT</span><b class="status-ready">READY</b></div>
+              <div class="unit-card">
+                <div class="unit-icon">◆</div>
+                <div><strong>IRON GUARD</strong><small>HEAVY • LVL 7</small></div>
+                <div class="hp">86<span>/100</span></div>
+              </div>
+              <div class="stats">
+                <span>ARMOR <b>72</b></span><span>POWER <b>64</b></span><span>RANGE <b>3</b></span>
+              </div>
+            </div>
+
+            <div class="panel-section activity">
+              <div class="panel-title"><span>BATTLE LOG</span><a href="#">View all</a></div>
+              <div class="log"><i class="log-blue">◆</i><div><b>You moved Iron Guard</b><small>12 seconds ago</small></div></div>
+              <div class="log"><i class="log-red">◆</i><div><b>Vanguard captured E4</b><small>28 seconds ago</small></div></div>
+              <div class="log"><i class="log-blue">◆</i><div><b>Scout revealed enemy</b><small>46 seconds ago</small></div></div>
+            </div>
+
+            <button class="primary-btn" id="actionBtn">CONFIRM MOVE <span>↵</span></button>
+            <button class="secondary-btn" data-modal="themes">CUSTOMIZE BOARD</button>
+          </aside>
+        </section>
+
+        <section class="theme-strip" id="settings">
+          <div class="strip-heading"><div><p class="eyebrow">VISUAL SYSTEM</p><h2>Material themes</h2></div><button class="ghost-btn" data-modal="themes">Open theme studio →</button></div>
+          <div class="theme-grid">
+            <button class="theme-card active" data-bg="bg-steel" data-board="board-obsidian"><span class="swatch steel"></span><b>Obsidian Steel</b><small>Default pairing</small></button>
+            <button class="theme-card" data-bg="bg-concrete" data-board="board-slate"><span class="swatch concrete"></span><b>Urban Slate</b><small>Industrial / tactical</small></button>
+            <button class="theme-card" data-bg="bg-sand" data-board="board-sand"><span class="swatch sand"></span><b>Desert Command</b><small>Natural / warm</small></button>
+            <button class="theme-card" data-bg="bg-forest" data-board="board-wood"><span class="swatch forest"></span><b>Deep Forest</b><small>Organic / restrained</small></button>
+            <button class="theme-card" data-bg="bg-stone" data-board="board-stone"><span class="swatch stone"></span><b>Monolith</b><small>Stone / premium</small></button>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <nav class="mobile-nav">
+      <a class="active" href="#game"><span>◈</span>Arena</a><a href="#ranked"><span>↗</span>Ranked</a><a href="#history"><span>◷</span>History</a><a href="#settings"><span>⚙</span>Settings</a>
+    </nav>
+  </div>
+
+  <div class="modal-backdrop" id="modal">
+    <div class="modal">
+      <button class="modal-close" id="modalClose">×</button>
+      <p class="eyebrow">FORTRESS VISUAL SYSTEM</p>
+      <h2>Theme Studio</h2>
+      <p class="modal-copy">Switch the atmosphere without sacrificing board readability. The prototype includes light/dark mode and material-based board treatments.</p>
+      <div class="mode-switch"><button id="darkMode" class="active">Dark mode</button><button id="lightMode">Light mode</button></div>
+      <div class="modal-theme-grid">
+        <button data-bg="bg-steel" data-board="board-obsidian">Obsidian Steel</button>
+        <button data-bg="bg-concrete" data-board="board-slate">Urban Slate</button>
+        <button data-bg="bg-sand" data-board="board-sand">Desert Command</button>
+        <button data-bg="bg-forest" data-board="board-wood">Deep Forest</button>
+        <button data-bg="bg-stone" data-board="board-stone">Monolith</button>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
